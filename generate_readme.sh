@@ -24,6 +24,7 @@ do
             # There should be yamls/scripts/images dirs in root dir
             if [[ -d ${_root}/${_dir} ]]; then
                 echo "    List ${_root}/$_dir"
+                echo "#### $_dir" >> README.md
                 for _file in $(ls ${_root}/${_dir})
                 do
                     # Get file type
