@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ APP_NAME }}
+  labels:
+    app: {{ APP_NAME }}
+spec:
+  template:
+    metadata:
+      name: {{ APP_NAME }}
+      labels:
+        app: {{ APP_NAME }}
+    spec:
+      containers:
+        - name: {{ APP_NAME }}
+          image: daocloud.io/dc_pokeman/jira-notifier:{{ NOTIFIER_VERSION }}
+          resources:
+            limits:
+              cpu: '0.1'
+              memory: '1Gi'
+            requests:
+              cpu: '0.1'
+              memory: '1Gi'
+          ports:
+            - containerPort: 8001
+          env:
+            - name: JIRA_HOST
+              value: "{{ JIRA_HOST }}"
+            - name: JIRA_ACCOUNT
+              value: "{{ JIRA_ACCOUNT }}"
+            - name: JIRA_PASSWORD
+              value: "{{ JIRA_PASSWORD }}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ APP_NAME }}
+spec:
+  type: NodePort
+  ports:
+    - port: 8001
+      nodePort: {{ NOTIFIER_NODEPORT }}
+  selector:
+    app: {{ APP_NAME }}

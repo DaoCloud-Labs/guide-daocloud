@@ -4,3 +4,4 @@ Scripts and YAMLs in DaoCloud Guide
 > *Please contact wei.shi@daocloud.io if there is any mistake*
 ## dcs
 - [config_jira_notifier.sh](https://raw.githubusercontent.com/DaoCloud-Labs/guide-daocloud/master/dcs/scripts/config_jira_notifier.sh)
+- [jira_notifier_dce.yaml](https://raw.githubusercontent.com/DaoCloud-Labs/guide-daocloud/master/dcs/yamls/jira_notifier_dce.yaml)
