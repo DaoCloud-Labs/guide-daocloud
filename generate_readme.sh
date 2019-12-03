@@ -42,7 +42,7 @@ do
                         done
                     else
                         # other type files' link is raw link
-                        _file_link="${_raw_link}/${_dir}/${_file}"
+                        _file_link="${_raw_link}/${_root}/${_dir}/${_file}"
                         echo "      ${_file}:"
                         echo "        ${_file_link}"
                         echo "- [$_file](${_file_link})" >> README.md
